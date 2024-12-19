@@ -2,9 +2,9 @@ require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
-const userRoutes = require('src/routes/users');
-const notFound = require('src/middleware/notFound');
-const errorHandler = require('src/middleware/errorHandler');
+const userRoutes = require('./src/routes/users');
+const notFound = require('./src/middleware/notFound');
+const errorHandler = require('./src/middleware/errorHandler');
 
 const MONGO_URI = process.env.MONGO_URI || '';
 
