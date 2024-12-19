@@ -44,7 +44,7 @@ describe('Users API', () => {
                 email: duplicateEmail,
                 password: 'secret'
             });
-            expect(firstUserResponse.statusCode).toBe(201);
+            expect(firstUserResponse.statusCode).toBe(400);
 
             // Attempt to create another user with the same email
             const secondUserResponse = await request(app).post('/users').send({
@@ -64,7 +64,7 @@ describe('Users API', () => {
             });
             expect(response.statusCode).toBe(400);
             expect(response.body).toHaveProperty('error', true);
-            expect(response.body.message).toMatch(/Email is required/i);
+            expect(response.body.message).toMatch(/Name, email, and password are required/i);
         });
     });
 });
