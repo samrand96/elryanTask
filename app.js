@@ -17,7 +17,9 @@ mongoose.connect(MONGO_URI, {
 
 const app = express();
 
-app.use('/api/users', userRoutes);
+app.use(express.json());
+
+app.use('/users', userRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

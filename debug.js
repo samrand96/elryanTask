@@ -63,7 +63,7 @@ app.use(express.json());
  */
 app.post('/users', async (req, res) => {
     try{
-        const [name, email] = [req.body.name, req.body.email];
+        const [name, email] = req.body;
         if(!name || !email){
             return res.status(400).send({ error: true, message: 'Name and email are required' });
         }
